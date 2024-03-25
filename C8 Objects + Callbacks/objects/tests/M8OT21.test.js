@@ -11,18 +11,18 @@ const storeItem2 = {
 
 test("Debe agregar la propiedad 'calcularPrecioDescuento' al objetoProducto", function () {
   expect(
-     agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento
+    agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento
   ).toBeDefined();
   expect(
-     agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento
+    agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento
   ).toBeDefined();
 });
 
-test('Debe devolver el precio con descuento del producto', function () {
+test("Debe devolver el precio con descuento del producto", function () {
   expect(
-     agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento()
+    agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento()
   ).toBe(72);
   expect(
-     agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento()
+    agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento()
   ).toBe(2.5);
 });

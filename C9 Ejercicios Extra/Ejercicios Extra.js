@@ -6,6 +6,26 @@ function deObjetoAarray(objeto) {
   // Estos elementos debe ser cada par clave:valor del objeto recibido.
   // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
   // Tu código:
+
+  // var arrPadre = [];
+
+  // for (var clave in objeto) {
+  //   if (objeto.hasOwnProperty(clave)) {
+  //     var subarreglo = [clave, objeto[clave]];
+  //     arrPadre.push(subarreglo);
+  //   }
+  // }
+  // return arrPadre;
+
+  // OTRA OPCION DE RESOLVER CON EL METODO Object.entries():
+  return Object.entries(objeto);
+
+  //   Object.entries() es un método estático en JavaScript que devuelve un arreglo de
+  //arreglos correspondiente a los pares clave-valor enumerables encontrados directamente en un objeto.
+  //Cada subarreglo contiene dos elementos: la clave (siempre una cadena) y el valor asociado a esa clave.
+
+  // Sintaxis:
+  // Object.entries(objeto)
 }
 
 function numberOfCharacters(string) {
@@ -14,6 +34,27 @@ function numberOfCharacters(string) {
   // Las letras deben estar en orden alfabético.
   // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
   // Tu código:
+  var conteoLetras = {};
+  // Convertir el string a minúsculas para considerar mayúsculas y minúsculas iguales
+  var stringMin = string.toLowerCase();
+
+  for (var letras of stringMin) {
+    if (/[a-z]/.test(letras)) {
+      // Si es una letra, actualiza el conteo
+      conteoLetras[letras] = (conteoLetras[letras] || 0) + 1;
+    }
+  }
+
+  return conteoLetras;
+
+  // La expresión regular /[a-z]/.test(char) tiene el siguiente significado:
+
+  // [a-z]: Esto es una clase de caracteres que representa cualquier letra minúscula del alfabeto inglés. En otras palabras, coincide con cualquier letra desde “a” hasta “z”.
+  // .test(char): El método .test() se aplica a la expresión regular y verifica si el valor proporcionado (en este caso, char) coincide con la expresión regular. Devuelve true si hay una coincidencia y false si no la hay.
+  // En resumen, esta expresión verifica si el valor de char es una letra minúscula (desde “a” hasta “z”). Si es así, devuelve true; de lo contrario, devuelve false. Por ejemplo:
+
+  // Si char es “b”, la expresión devuelve true.
+  // Si char es “5”, la expresión devuelve false.
 }
 
 function capToFront(string) {
@@ -22,6 +63,18 @@ function capToFront(string) {
   // Retornar el string.
   // [EJEMPLO]: soyHENRY ---> HENRYsoy
   // Tu código:
+  var mayusculas = "";
+  var minusculas = "";
+
+  for (var letras of string) {
+    if (letras === letras.toUpperCase()) {
+      mayusculas += letras;
+    } else {
+      minusculas += letras;
+    }
+  }
+
+  return mayusculas + minusculas;
 }
 
 function asAmirror(frase) {
@@ -29,6 +82,19 @@ function asAmirror(frase) {
   // La diferencia es que cada palabra estará escrita al inverso.
   // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
   // Tu código:
+
+  // Divide la frase en palabras
+  var palabras = frase.split(" ");
+
+  // Invierte cada palabra
+  var palabrasInvertidas = palabras.map((palabra) => {
+    return palabra.split("").reverse().join("");
+  });
+
+  // Une las palabras invertidas para formar la frase invertida
+  var fraseInvertida = palabrasInvertidas.join(" ");
+
+  return fraseInvertida;
 }
 
 function capicua(numero) {

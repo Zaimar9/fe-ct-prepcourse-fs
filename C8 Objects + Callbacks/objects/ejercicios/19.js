@@ -4,6 +4,14 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
   // Define esta propiedad de todos los usuarios como true.
   // Retornar el arreglo.
   // Tu código:
+
+  // colocar => es igual que colocar function(usuario)
+
+  // objetoMuchosUsuarios.forEach((usuario) => {
+  objetoMuchosUsuarios.forEach(function (usuario) {
+    usuario.esPremium = true;
+  });
+  return objetoMuchosUsuarios;
 }
 
 module.exports = pasarUsuarioAPremium;
