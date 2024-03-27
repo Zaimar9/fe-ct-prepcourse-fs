@@ -101,12 +101,26 @@ function capicua(numero) {
   // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
   // Caso contrario: "No es capicua".
   // Tu código:
+  // Convertir el número a una cadena de texto
+  var numComoCadena = numero.toString();
+
+  // Invertir la cadena
+  var numInvertido = numComoCadena.split("").reverse().join("");
+
+  // Comparar la cadena invertida con la original
+  if (numComoCadena === numInvertido) {
+    return "Es capicua";
+  } else {
+    return "No es capicua";
+  }
 }
 
 function deleteAbc(string) {
   // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
   // Retorna el string sin estas letras.
   // Tu código:
+
+  return string.replace(/[abc]/g, "");
 }
 
 function sortArray(arrayOfStrings) {
@@ -115,6 +129,12 @@ function sortArray(arrayOfStrings) {
   // de la longitud de cada string.
   // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
   // Tu código:
+
+  var nuevoArreglo = arrayOfStrings;
+
+  nuevoArreglo.sort((a, b) => a.length - b.length);
+
+  return nuevoArreglo;
 }
 
 function buscoInterseccion(array1, array2) {
@@ -124,6 +144,23 @@ function buscoInterseccion(array1, array2) {
   // Si no tienen elementos en común, retornar un arreglo vacío.
   // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
   // Tu código:
+
+  var elementosEnComun = array1.filter((elemento) => array2.includes(elemento));
+  return elementosEnComun;
+
+  //OTRA OPCION
+  // const array1 = [2, 5, 9, 7];
+  // const array2 = [1, 5, 7, 9, 11];
+  // const elementosEnComun = [];
+
+  // for (let i = 0; i < array1.length; i++) {
+  //   for (let j = 0; j < array2.length; j++) {
+  //     if (array1[i] === array2[j]) {
+  //       elementosEnComun.push(array1[i]);
+  //       break; // Cuando encuentras una coincidencia, no necesitas seguir buscando.
+  //     }
+  //   }
+  // }
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
